@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import place, places, create_place, edit_place, delete_place
+from .views import FeedbackView, place, places, create_place, edit_place, delete_place, FeedbackDetailView
 
 urlpatterns = [
     path('', places, name='places-list'),
@@ -7,4 +7,6 @@ urlpatterns = [
     path('<int:id>/', place, name='place'),
     path('<int:id>/edit/', edit_place, name='edit-place'),
     path('<int:id>/delete/', delete_place, name='delete-place'),
+    path('feedback/', FeedbackView.as_view(), name='feedback'),
+    path('feedback/<int:pk>/', FeedbackDetailView.as_view(), name='feedback-detail'),
 ]
