@@ -40,6 +40,8 @@ class Feedback(models.Model):
 
     text = models.TextField(verbose_name='Текст обратной связи')
 
+    checked = models.BooleanField(default=False, verbose_name='Обратано')
+
     def __str__(self):
         return self.text[:20]
 
